@@ -1,0 +1,26 @@
+{
+  "tres_path": {
+    "kb": "kb-tres-path",
+    "kg": "kg-tres-path",
+    "mg": "mg-tres-path",
+    "na": "na-tres-path",
+    "zo": "zo-tres-path"
+  },
+  "results": "results-path",
+  "mysql": {
+    "host": "host",
+    "user": "user",
+    "pass": "pass",
+    "db": "db"
+  },
+  "email_box": {
+    "sender": "sender_address",
+    "user": "user",
+    "pass": "pass"
+  },
+  "email_address": {
+    "task": [
+      "recipient_address"
+    ]
+  }
+}
