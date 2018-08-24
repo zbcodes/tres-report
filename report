@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+#   *** report ***
+#   (C) 2018 Zbigniew Bejgrowicz
+#
+# Zastosowanie:
+# Wysyłanie raportów z Trawersa, pocztą e-mail
+# Skrypt przeznaczony do uruchamiania z cron-a
+
+PATH_BIN="/trawers/bin/reports"
+PATH_LOG="/trawers/log"
+LOG_FILE="daily-report.log"
+
+echo "*** $(date '+%d.%m.%Y') Rozpoczynam tworzenie i wysyłanie raportów ***" >> $PATH_LOG/$LOG_FILE
+
+cd $PATH_BIN
+echo "$(date '+%T')  uruchamiam program" >> $PATH_LOG/$LOG_FILE
+python3 daily-report.py >> $PATH_LOG/$LOG_FILE
+
+echo "============================= KONIEC ==============================" >> $PATH_LOG/$LOG_FILE

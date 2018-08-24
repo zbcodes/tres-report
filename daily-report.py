@@ -1,6 +1,5 @@
-#!/usr/bin/env python3
-
 import os
+import datetime
 
 from config import Config
 from tres import Tres
@@ -9,7 +8,7 @@ from mail import Email
 
 
 def main():
-    # utworzenie obiektu z danymi konfiguracujnymi programu
+    # utworzenie obiektu z danymi konfiguracyjnymi programu
     cfg = Config()
 
     # opróżnienie katalogu z poprzednimi raportami
@@ -24,6 +23,8 @@ def main():
     # wysyłanie e-maili z raportami
     if t.is_sale():
         eml.send(cfg.email_address()['sale'], 'Raport dzienny sprzedaży', exl.sale(t.sale()))
+        print('{:%H:%M:%S}'.format(datetime.datetime.now()), end='  ')
+        print('wysłano raport sprzedaży:  ',  exl.sale(t.sale()))
 
 
 if __name__ == '__main__':
