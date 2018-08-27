@@ -1,3 +1,6 @@
+"""
+Moduł startowy programu
+"""
 import os
 import datetime
 
@@ -22,9 +25,10 @@ def main():
 
     # wysyłanie e-maili z raportami
     if t.is_sale():
-        eml.send(cfg.email_address()['sale'], 'Raport dzienny sprzedaży', exl.sale(t.sale()))
+        filename = exl.sale(t.sale())
+        eml.send(cfg.email_address()['sale'], 'Raport dzienny sprzedaży', filename)
         print('{:%H:%M:%S}'.format(datetime.datetime.now()), end='  ')
-        print('wysłano raport sprzedaży:  ',  exl.sale(t.sale()))
+        print('wysłano raport sprzedaży:  ',  filename)
 
 
 if __name__ == '__main__':
